@@ -117,7 +117,7 @@
 
 // import React from 'react';
 // function Note({ note }) {
-  
+
 //   return (
 //     <li>{note.content} {note.important && '*'}</li>
 //   )
@@ -142,7 +142,7 @@
 
 // event handling 1import React from 'react';
 // function Note({ note }) {
-   
+
 //   return (
 //     <li>{note.content} {note.important && '*'}</li>
 //   )
@@ -176,7 +176,7 @@
 // event handling2
 // import React from 'react';
 // function Note({ note }) {
-  
+
 //   return (
 //     <li>{note.content} {note.important && '*'}</li>
 //   )
@@ -217,13 +217,80 @@
 
 //export default App;
 
-import { Component } from "react";
+//import { Component } from "react";
 
 //class component
-class App extends Component{
-  render() {
-    return<div>hello world!</div>
-  }
+// class App extends Component{
+//   render() {
+//     return (
+//       <div>
+//         hello world!</div>)
+//   }
 
+// }
+// export default App;
+// import React from 'react'
+// // function component
+// function Hello(props){
+  //return(
+//<div>hello,{props.name}</div>
+//)}
+// function App() {
+//   return (
+//     <div>
+//        <Hello name={'abi'}   />
+//     </div >
+//   )
+// }
+
+//export default App;
+
+
+// import { Component } from "react";
+
+// //class component
+// class Hello extends Component{
+//   render() {
+//     const { name } = this.props;
+//     return (
+//       <div>
+//         {/* hello,{this.props.name}! */}
+//         Hello,{name}!
+//       </div>
+//     )
+//   }
+// }
+// class App extends Component {
+//   render() {
+//     return (
+//       <div>
+//         <Hello name={'abi' } /></div>)
+//   }
+
+// }
+// export default App;
+import React, { useState } from 'react'
+
+
+function App() {
+  const [counter, setcounter] = useState(0);
+
+
+  const handleplusclick = () => setcounter(counter + 1);
+  const handleminusclick = () => setcounter(counter - 1);
+  const handlezeroclick = () => setcounter(0);
+
+  return (
+    <div>
+      <div>
+        {counter}
+      </div>
+      <button onClick={handleplusclick}>plus</button>
+      <button onClick={handleminusclick}>minus</button>
+      <button onClick={handlezeroclick}>zero</button>
+
+    </div>
+  )
 }
-export default App;
+
+export default App
