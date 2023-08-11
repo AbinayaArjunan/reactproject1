@@ -165,7 +165,7 @@
 //       <form onSubmit={addnote}>
 //         <input />
 //         <button type='submit'>save note</button>
-//         
+//
 //       </form>
 //     </div>
 //   )
@@ -217,13 +217,60 @@
 
 //export default App;
 
-import { Component } from "react";
+// import { Component } from "react";
 
-//class component
-class App extends Component{
-  render() {
-    return<div>hello world!</div>
+// //class component
+// class App extends Component{
+//   render() {
+//     return<div>hello world!</div>
+//   }
+
+// }
+// export default App;
+
+
+
+// props
+// import { Component } from "react";
+// class Hello extends Component{
+//   render() {
+//     let {name}=this.props
+//     return <div> Hello { name}</div>
+
+//   }
+// }
+// //class component
+// class App extends Component {
+//   render() {
+//     return <div><Hello name={"abi"} /></div>
+//   }
+
+// }
+// export default App;
+import React, { Component } from 'react'
+
+class App extends Component {
+  //mount:called after the component has been rendered to the dom
+   componentDidMount(){
+     console.log("mount");
+  }
+  componentDidUpdate() {
+    //invoked after the component has been updated in the dom
+    //state or prop changes
   }
 
+  componentWillUnmount() {
+    //invoked just before the component is removed from the dom
+    //releasing memory or resources
+    //detaching the events
+    //cancelling timers
+  }
+  
+  render() {
+    return (
+      <div>App</div>
+    )
+  }
 }
-export default App;
+
+export default App
