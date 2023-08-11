@@ -247,28 +247,63 @@
 
 // }
 // export default App;
+
+// import React, { Component } from 'react'
+
+// class App extends Component {
+//   //mount:called after the component has been rendered to the dom
+//    componentDidMount(){
+//      console.log("mount");
+//   }
+//   componentDidUpdate() {
+//     //invoked after the component has been updated in the dom
+//     //state or prop changes
+//   }
+
+//   componentWillUnmount() {
+//     //invoked just before the component is removed from the dom
+//     //releasing memory or resources
+//     //detaching the events
+//     //cancelling timers
+//   }
+  
+//   render() {
+//     return (
+//       <div>App</div>
+//     )
+//   }
+// }
+
+// export default App
+
+
+//stateful components //rce
 import React, { Component } from 'react'
 
-class App extends Component {
-  //mount:called after the component has been rendered to the dom
-   componentDidMount(){
-     console.log("mount");
+export class App extends Component {
+
+  constructor(props) {
+    super(props);//for parent class constructor call
+    this.state = {
+      count:0,
+    };
   }
-  componentDidUpdate() {
-    //invoked after the component has been updated in the dom
-    //state or prop changes
+  handleClick=() =>{
+    this.setState((prevState) => ({
+      count:prevState.count +1,
+    }))
   }
 
-  componentWillUnmount() {
-    //invoked just before the component is removed from the dom
-    //releasing memory or resources
-    //detaching the events
-    //cancelling timers
-  }
-  
+
+
   render() {
     return (
-      <div>App</div>
+      <div>
+        <p>count:</p>
+        <button onClick={this.handleClick}>plus</button>
+        <button>minus</button>
+        <button>zero</button>
+      </div>
     )
   }
 }
