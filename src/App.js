@@ -429,34 +429,45 @@
 //props drilling
 // parent to grandchild  or nested
 
+// import React from 'react'
+
+// function GrandChildComponent({ parentData }) {
+//   console.log({ parentData });
+//   return (
+//     <div>
+//       <h3>Grand Child Component</h3>
+//     </div>
+//   )
+// }
+
+// function ChildComponent({ parentData }) {
+//   return (
+//     <div>
+//       <h2>child component</h2>
+//       <GrandChildComponent parentData={parentData} />
+//     </div>
+//   )
+// }
+
+// function App() {
+
+//   const parentData = "hello from parent";
+//   return (
+//     <div>
+//       <h1>parent component</h1>
+//       <ChildComponent parentData={parentData} />
+//     </div>
+//   )
+// }
+
+// export default App
+
+//passing data from the child component to the parent component
 import React from 'react'
 
-function GrandChildComponent({ parentData }) {
-  console.log({ parentData });
-  return (
-    <div>
-      <h3>Grand Child Component</h3>
-    </div>
-  )
-}
-
-function ChildComponent({ parentData }) {
-  return (
-    <div>
-      <h2>child component</h2>
-      <GrandChildComponent parentData={parentData} />
-    </div>
-  )
-}
-
 function App() {
-
-  const parentData = "hello from parent";
   return (
-    <div>
-      <h1>parent component</h1>
-      <ChildComponent parentData={parentData} />
-    </div>
+    <div>App</div>
   )
 }
 
