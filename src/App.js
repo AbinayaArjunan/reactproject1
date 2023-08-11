@@ -165,7 +165,7 @@
 //       <form onSubmit={addnote}>
 //         <input />
 //         <button type='submit'>save note</button>
-//         
+//
 //       </form>
 //     </div>
 //   )
@@ -269,26 +269,193 @@
 
 // }
 // export default App;
-import React, { useState } from 'react'
+
+// start with use that is hook
+//hook-usestate
+// state changes triggers component re rendering
+// import React, { useState } from 'react'
 
 
-function App() {
-  const [counter, setcounter] = useState(0);
+// function App() {
+//   const [counter, setcounter] = useState(0);
 
 
-  const handleplusclick = () => setcounter(counter + 1);
-  const handleminusclick = () => setcounter(counter - 1);
-  const handlezeroclick = () => setcounter(0);
+//   const handleplusclick = () => setcounter(counter + 1);
+//   const handleminusclick = () => setcounter(counter - 1);
+//   const handlezeroclick = () => setcounter(0);
 
+//   return (
+//     <div>
+//       <div>
+//         {counter}
+//       </div>
+//       <button onClick={handleplusclick}>plus</button>
+//       <button onClick={handleminusclick}>minus</button>
+//       <button onClick={handlezeroclick}>zero</button>
+
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+// import React, { useState } from 'react'
+
+
+// const Display = (props) => {
+//   return (
+//     <div>{ props.counter}</div>
+//   )
+// }
+
+// function App() {
+//   const [counter, setcounter] = useState(0);
+
+
+//   const handleplusclick = () => setcounter(counter + 1);
+//   const handleminusclick = () => setcounter(counter - 1);
+//   const handlezeroclick = () => setcounter(0);
+
+//   return (
+//     <div>
+//       <div>
+//        <Display counter= {counter}/>
+//       </div>
+//       <button onClick={handleplusclick}>plus</button>
+//       <button onClick={handleminusclick}>minus</button>
+//       <button onClick={handlezeroclick}>zero</button>
+
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+// import React, { useState } from 'react'
+
+
+// const Display = (props) => {
+//   return (
+//     <div>{props.counter}</div>
+//   )
+// }
+
+// function Button(props) {
+//   return (
+//     <button onClick={props.handleClick}>{props.text }</button>
+//   )
+// }
+
+// function App() {
+//   const [counter, setcounter] = useState(0);
+
+
+//   const handleplusclick = () => setcounter(counter + 1);
+//   const handleminusclick = () => setcounter(counter - 1);
+//   const handlezeroclick = () => setcounter(0);
+
+//   return (
+//     <div>
+//       <div>
+//         <Display counter={counter} />
+//       </div>
+//       <Button text="plus" handleClick={handleplusclick}/>
+//       <Button text='minus' handleClick={handleminusclick} />
+//       <Button text='zero' handleClick={handlezeroclick} />
+//     </div>
+//   )
+// }
+
+// export default App
+
+// import React, { useEffect, useState } from 'react'
+
+// function App() {
+//   const [data, setdata] = useState(null);
+//   //runs only one time
+//   useEffect(() => {
+//     fetch('https://jsonplaceholder.typicode.com/posts')
+//       .then((response) => response.json())
+//       .then((data) => setdata(data));
+//   }, []);
+
+//   return (
+//     <div>
+//       <h1>api data</h1>
+//       {
+//         data ? (
+//           <ul>
+//         {
+//           data.map(item => <li key={item.id}>{item.title}</li>)
+//         }
+//           </ul>
+//         ) : (
+//             <p>loading data...</p>
+//         )
+             
+        
+//       }
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+// import React, { useEffect, useState } from 'react'
+
+// function App() {
+//   const [count, setcount] = useState(0);
+//   useEffect(() => {
+//     document.title = `count=${count}`
+//   }, [count]);
+   
+//   const incrementHandler = () => {
+//     setcount(count+1)
+//   }
+
+//   return (
+//     <div>
+//       <button onclick={incrementHandler}>increment</button>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+//props drilling
+// parent to grandchild  or nested
+
+import React from 'react'
+
+function GrandChildComponent({ parentData }) {
+  console.log({ parentData });
   return (
     <div>
-      <div>
-        {counter}
-      </div>
-      <button onClick={handleplusclick}>plus</button>
-      <button onClick={handleminusclick}>minus</button>
-      <button onClick={handlezeroclick}>zero</button>
+      <h3>Grand Child Component</h3>
+    </div>
+  )
+}
 
+function ChildComponent({ parentData }) {
+  return (
+    <div>
+      <h2>child component</h2>
+      <GrandChildComponent parentData={parentData} />
+    </div>
+  )
+}
+
+function App() {
+
+  const parentData = "hello from parent";
+  return (
+    <div>
+      <h1>parent component</h1>
+      <ChildComponent parentData={parentData} />
     </div>
   )
 }
